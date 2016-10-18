@@ -1,18 +1,45 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <errno.h>
-
 #include "mymath.h"
 
-double sine(double x) {
+double ceil3(double x) {
+	int temp; double ceil;
+	temp = x;
+	if(x < 0) {
+		ceil = temp;
+		return ceil;
+	}
+	else {
+		temp++;
+		ceil = temp;
+		return ceil;
+	}
+}
+
+double floor3(double x) {
+	return 0; //still to be handled
+}
+
+double fmod3(double a, double b) {
+	return (a - b * floor3(a/b));
+}
+
+double fabs3(double term) {
+	if(term < 0)
+		return (-term);
+	else
+		return (term);
+}
+
+double sin3(double x) {
 	//if(x == NaN || x == INFINITY || x == -INFINTY) 
 	//	return NaN;
 	/*else*/if(x > (2 * PI)) 
-			return (sine(fomod(x, (2 * PI))));
+			return (sine(fmod3(x, (2 * PI))));
 	 else {
 		int n = 3;
 		double sum = x, term = x;
-		while(foabs(term) > MINIMUM) {
+		while(fabs3(term) > MINIMUM) {
 			term = term * x * x / ( n * ( n - 1 ));
 			if(n % 4 == 3) 
 				sum  = sum - term;
@@ -24,16 +51,16 @@ double sine(double x) {
 	}
 }
 
-double cose(double x) {
+double cos3(double x) {
 	//if(x == NaN || x == INFINITY || x == -INFINTY) 
 	//	return NaN;
 	/*else*/if(x > (2 * PI)) 
-			return (sine(fomod(x, (2 * PI))))
+			return (sin3(fmod3(x, (2 * PI))))
 	
 	else {
 		int n = 2;
 		double sum = 1, term = 1;
-		while(foabs(term) > MINIMUM) {
+		while(fabs3(term) > MINIMUM) {
 			term = term * x * x / (n * ( n - 1 ));
 			if(n % 4 == 2)
 				sum = sum - term;	
@@ -45,10 +72,10 @@ double cose(double x) {
 	}
 }
 
-double tane(double x) {
+double tan3(double x) {
 	double y;
-	if(cos(x) != NaN) {
-		y =  (sin(x)/cos(x));
+	if(cos3(x) != NaN) {
+		y =  (sin3(x)/cos3(x));
 		if(sizeof(y) > sizeof(double))
 			return HUGE_VAL;
 		else
@@ -58,7 +85,7 @@ double tane(double x) {
 		return NaN;
 }
 
-double sinhe(double x) {
+double sinh3(double x) {
 	if(x == NaN)
 		return NaN;
 	else if(x == INFINITY)
@@ -68,7 +95,7 @@ double sinhe(double x) {
 	else {		
 		int n = 3;
 		double sum = x, term = x;
-		while(foabs(term) > MINIMUM) {
+		while(fabs3(term) > MINIMUM) {
 			term = term * x * x / ( n * ( n - 1 ));
 			sum = sum + term;
 			n = n + 2;
@@ -80,7 +107,7 @@ double sinhe(double x) {
 	}
 }
 
-double coshe(double x) {
+double cosh3(double x) {
 	if(x == NaN)
 		return NaN;
 	else if(x == INFINITY || x == -INFINTY)
@@ -88,7 +115,7 @@ double coshe(double x) {
 	else {
 		int n = 2;
 		double sum = 1, term = 1;
-		while(foabs(term) > MINIMUM) {
+		while(fabs3(term) > MINIMUM) {
 			term = term * x * x / ( n * ( n - 1 ));
 			sum = sum + term;
 			n = n + 2;
@@ -100,7 +127,7 @@ double coshe(double x) {
 	}
 }
 
-double tanhe(double x) {
+double tanh3(double x) {
 	if(x == NaN)
 		return NaN;
 	else if(x == INFINITY)
@@ -108,10 +135,11 @@ double tanhe(double x) {
 	else if(x == -INFINTY)
 		return -1;
 	else {
-		
-	
+		return 0;//still to be handled
+	}
+}	
 
-double asine(double x) {
+double asin3(double x) {
 	int n = 3;
 	double term = ((x * x * x)/6), sum = x + ((x * x * x)/6);
 	while(term > MINIMUM) {
@@ -122,11 +150,11 @@ double asine(double x) {
 	return sum;
 }
 
-double acose(double x) {
-	return ((PI/2) - asin(x));
+double acos3(double x) {
+	return ((PI/2) - asin3(x));
 }
 
-double atane(double x) {
+double atan3(double x) {
 	int n = 1;
 	double term = x, sum = x;
 	while(fobs(term) > MINIMUM) {
@@ -140,7 +168,11 @@ double atane(double x) {
 	return sum;
 }
 
-double lg(double x) {
+double atan23(double y, double x) {
+	return 0; //still to be handled
+}
+
+double log3(double x) {
 	if(x == NaN || x < 0)
 		return NaN;
 	else if(x == 0)
@@ -158,11 +190,11 @@ double lg(double x) {
 	}
 } 
 
-double expo(double x) {
+double exp3(double x) {
 	
 	int n = 1;
 	double sum = 1, term = 1;
-	while(foabs(term) > MINIMUM) {
+	while(fabs3(term) > MINIMUM) {
 		term = term * x / n;
 		sum = sum + term;
 		n++;
@@ -170,8 +202,8 @@ double expo(double x) {
 	return sum;
 }
 
-double lg10(double x) {
-	return (lg(x)/lgE10);
+double log103(double x) {
+	return (log3(x)/LOGe10);
 }
 
 double pow3(double x, double y) {
@@ -187,42 +219,102 @@ double pow3(double x, double y) {
 		else 
 			return 	0.0;
 	else {
-		if(y < 0) 
-			y = -y;	
-		term = x; 
-		result = 1;
-		while(y) {
-			if(y % 3 == 1)
-				result = result * term;
-			if(y % 3 == 2)
-				result = result * term * term;
-			y /= 3;
-			term = term * term * term;
+		if(fmod3(y, floor(y)) == 0) {
+			if(y < 0) 
+				y = -y;	
+			term = x; 
+			result = 1;
+			while(y) {
+				if(y % 3 == 1)
+					result = result * term;
+				if(y % 3 == 2)
+					result = result * term * term;
+				y /= 3;
+				term = term * term * term;
+			}
+			if(z < 0) 
+				return (1.0)/result;	
+			else 
+				return (double)result;	
 		}
-		if(z < 0) 
-			return (1.0)/result;	
-		else 
-			return (double)result;	
+		else {
+			if(x < 0)
+				return /*-NaN*/1010101;
+			else
+				return (exp3(y * lg(x)));
+		}
+			
 	}	
 }
-double fomod(double a, double b) {
-	return (a - b * floor(a/b));
-}
 
-double foabs(double term) {
-	if(term < 0)
-		return (-term);
+double sqrt3(double x) {
+	if(x == NaN)
+		return NaN;
+	else if(x < 0)
+		//domain error
+		return NaN;
+	else if(x == 0)
+		return 0;
 	else
-		return (term);
+		return exp3((0.50) * log3(x));
 }
 
+double modf3(double x, double *ip) {
+	if(x == ceil(x)) {
+		*ip = x;
+		return 0;
+	}
+	else if(x > 0) {
+		*ip = floor(x);
+		return (x - floor(x));
+	}
+	else {
+		*ip = ceil(x);
+		return (-(ceil(x) - x));
+	}
+}
 
-		
+double frexp3(double x, int *exp) {
+	//if(/*x is power of 2*/) {
+	//	return 0;
+	//}
+	//else {
+		if(x == 0) {
+			*exp = 0;
+			return 0;
+		}
+		else if(x < 0) {
+			double d = lg(2);
+			*exp = ceil(lg(-x)/d);
+			return ((x / (pow3(2, *exp))));
+		}
+		else {
+			double d = lg(2);
+			*exp = ceil(lg(x)/d);
+			return (x / (pow3(2, *exp)));
+		}	
+	//}	
+}
+	
+div_t div3(int number, int denom) {
+	return 0; //still left
+}
 
+double labs3(long n) {
+	return 0; //still left
+}
 
+double ldexp3(double x, int exp) {
+	return 0; //still left
+}
 
+ldiv_t ldiv3(long number, long denom) {
+	return 0; //still left
+}
 
-
+void srand3(unsigned seed) {
+	return 0; //still left
+}
 
 
 

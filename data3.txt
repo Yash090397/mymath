@@ -1,0 +1,78 @@
+sin	0
+sin	12.22
+sin	PI
+cos	1.234
+cos	122
+tan	1.4144
+tan	22.33
+asin	1
+acos	2
+atan	3
+atan2	0	0
+pow	22.222	1.234
+pow	0	0
+log	-3
+log	0
+log	12.33
+log	1.99
+log	1000
+log10	1.233
+exp	11.11
+exp	-2.33
+fmod	12.22	1.213
+modf	33.33
+frexp	22.333321
+sqrt	23.111
+sqrt	10000000
+log	100000
+sin	22.222
+cos	-0.999
+tan	-2
+sin	-222.22
+adc	22.22
+sad	a
+fabs	-22222222222222.22222
+ceil	222.223
+ceil	0
+ceil	-222.223
+ceil	22
+ceil	-222
+floor	1222
+floor	0
+floor	-1.99
+floor	-226
+ceil	0.23
+ceil	-0.43
+floor	0.9999
+floor	-0.00001
+sin	0.999
+cos	0.999
+tan	0.999
+sin	12.234
+sin	-12.234
+cos	19.9876
+cos	-19.9876
+tan	23.3122
+tan	-23.3122
+asin	1
+acos	0
+atan	1
+atan2	0	0
+pow	-12	3
+pow	122	2.312345
+sqrt	99.999
+sqrt	-10
+exp	-12.22
+exp	-9.807
+fmod	122	-9
+fmod	-99	2.33
+fmod	-23.33	-11.212
+fmod	9.87	1.2341
+modf	11
+modf	12.213
+modf	0
+modf	-111.7466
+frexp	19.922
+frexp	12.212
+labs	122222222222222222222222222
+labs	-12222222222222222222222222

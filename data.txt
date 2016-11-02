@@ -1,0 +1,12 @@
+pow	2	3
+sin	0
+cos	1
+atan2	3	4	
+sin	2.33
+sin	nan
+cos	100000000
+sqrt	4
+log	2.34
+log10	100
+frexp	22.4
+frexp	128

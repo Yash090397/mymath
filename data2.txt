@@ -1,0 +1,25 @@
+sin	0
+sin	12.22
+sin	PI
+cos	1.234
+cos	122
+tan	1.4144
+tan	22.33
+asin	1
+acos	2
+atan	3
+atan2	0	0
+pow	22.222	1.234
+pow	0	0
+log	-3
+log	0
+log	12.33
+log	1.99
+log	1000
+log10	1.233
+exp	11.11
+exp	-2.33
+fmod	12.22	1.213
+modf	33.33
+frexp	22.333321
+sqrt	23.111
